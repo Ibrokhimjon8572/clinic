@@ -4,8 +4,20 @@ class Doctor(Patient):
     def __init__(self, ismi, familyasi, ssn, id, speciality) -> None:
         self._id = id
         self._speciality = speciality
-        self._patient_list: list[Patient] = []
+        self._patient_list = []
         super().__init__(ismi, familyasi, ssn)
+    
+    @property
+    def speciality(self):
+        return self.speciality
+
+    @property
+    def ismi(self):
+        return self._ismi
+    
+    @property
+    def familyasi(self):
+        return self._familyasi
 
     @property
     def id(self):
@@ -15,9 +27,9 @@ class Doctor(Patient):
     def speciality(self):
         return self._speciality
     
-    def addpatient(self, patient):
-        self._patient_list.append(patient)
-        print('doctorga patient biriktirildi')
+    def collectpatient(self, ssn):
+        self._patient_list.append(ssn)
+        print('doctorga bemor biriktirildi')
 
     def getpatients(self):
         return self._patient_list
